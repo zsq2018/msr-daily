@@ -1,0 +1,1 @@
+{"version":3,"file":"MorePromotions.d.ts","sourceRoot":"","sources":["../../../../src/functions/activities/rewards/MorePromotions.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,iBAAiB,CAAA;AAC9C,OAAO,KAAK,EAAiB,aAAa,EAAE,MAAM,kCAAkC,CAAA;AAGpF,qBAAa,cAAe,SAAQ,YAAY;IAC/B,GAAG,CAAC,IAAI,EAAE,aAAa,GAAG,OAAO,CAAC,IAAI,CAAC;IA+BpD,OAAO,CAAC,YAAY;IAOpB,OAAO,CAAC,YAAY;CAKvB"}

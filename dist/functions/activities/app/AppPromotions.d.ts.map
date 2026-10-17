@@ -1,0 +1,1 @@
+{"version":3,"file":"AppPromotions.d.ts","sourceRoot":"","sources":["../../../../src/functions/activities/app/AppPromotions.ts"],"names":[],"mappings":"AAAA,OAAO,EAAE,YAAY,EAAE,MAAM,iBAAiB,CAAA;AAC9C,OAAO,KAAK,EAAE,gBAAgB,EAAE,MAAM,qCAAqC,CAAA;AAE3E,qBAAa,aAAc,SAAQ,YAAY;IAC9B,GAAG,CAAC,IAAI,EAAE,gBAAgB,GAAG,OAAO,CAAC,IAAI,CAAC;CAgC1D"}

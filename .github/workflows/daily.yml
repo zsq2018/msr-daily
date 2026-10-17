@@ -1,0 +1,83 @@
+name: Microsoft Rewards Daily
+
+on:
+  schedule:
+    # GitHub Actions 使用 UTC；北京时间 22:05 = UTC 14:05
+    - cron: '5 14 * * *'
+  workflow_dispatch:
+    inputs:
+      account:
+        description: '运行哪个账号（留空=全部）'
+        required: false
+        default: ''
+
+concurrency:
+  group: msr-daily
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          cache: 'npm'
+
+      # 恢复上次的登录会话和巡检状态
+      - name: Restore sessions & state
+        uses: actions/cache@v4
+        with:
+          path: |
+            sessions
+            inspect-state.json
+          key: msr-${{ github.run_id }}
+          restore-keys: |
+            msr-
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium (patchright)
+        run: npx patchright install chromium --with-deps
+
+      - name: Run Microsoft Rewards
+        env:
+          ACCOUNT_1_EMAIL: ${{ secrets.ACCOUNT_1_EMAIL }}
+          ACCOUNT_1_PASSWORD: ${{ secrets.ACCOUNT_1_PASSWORD }}
+          ACCOUNT_1_GEO_LOCALE: cn
+          ACCOUNT_1_LANG_CODE: zh
+          TZ: Asia/Shanghai
+        run: |
+          set -o pipefail
+          node dist/index.js 2>&1 | tee run.log
+
+      - name: Inspect result & notify Feishu
+        if: always()
+        env:
+          FEISHU_WEBHOOK: ${{ secrets.FEISHU_WEBHOOK }}
+        run: node inspect.js
+
+      - name: Upload run log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: run-log-${{ github.run_number }}
+          path: run.log
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Save sessions & state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: |
+            sessions
+            inspect-state.json
+          key: msr-${{ github.run_id }}

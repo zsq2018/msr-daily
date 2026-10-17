@@ -1,0 +1,1 @@
+{"version":3,"file":"UrlReward.d.ts","sourceRoot":"","sources":["../../../../src/functions/activities/api/UrlReward.ts"],"names":[],"mappings":"AACA,OAAO,KAAK,EAAE,aAAa,EAAE,MAAM,kCAAkC,CAAA;AACrE,OAAO,EAAE,YAAY,EAAE,MAAM,iBAAiB,CAAA;AAE9C,qBAAa,SAAU,SAAQ,YAAY;IAC1B,WAAW,CAAC,SAAS,EAAE,aAAa;YAInC,YAAY;YA8HZ,wBAAwB;CAczC"}

@@ -1,0 +1,1 @@
+{"version":3,"file":"BaseActivity.d.ts","sourceRoot":"","sources":["../../../src/functions/activities/BaseActivity.ts"],"names":[],"mappings":"AAAA,OAAO,KAAK,EAAE,mBAAmB,EAAE,MAAM,aAAa,CAAA;AAEtD,8BAAsB,YAAY;IAC9B,SAAS,CAAC,QAAQ,CAAC,GAAG,EAAE,mBAAmB,CAAA;gBAE/B,GAAG,EAAE,mBAAmB;CAGvC"}

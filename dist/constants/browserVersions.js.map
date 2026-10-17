@@ -1,0 +1,1 @@
+{"version":3,"file":"browserVersions.js","sourceRoot":"","sources":["../../src/constants/browserVersions.ts"],"names":[],"mappings":";;;AAAa,QAAA,yBAAyB,GAAG;IACrC,MAAM,EAAE,eAAe;IACvB,IAAI,EAAE;QACF,OAAO,EAAE,eAAe;QACxB,OAAO,EAAE,eAAe;KAC3B;CACK,CAAA"}
